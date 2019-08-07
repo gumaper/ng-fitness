@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from './../../material.module';
+
 
 
 

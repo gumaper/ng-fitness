@@ -1,4 +1,13 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <app-sidenav (closeSidenav)="sidenav.close()"></app-sidenav>
+    </mat-sidenav>
 
-<button mat-raised-button routerLink="/signup" style="margin-bottom: 20px;">sign up</button>
-<button mat-raised-button color="primary" routerLink="/login">login</button>
-<router-outlet></router-outlet>
+    <mat-sidenav-content>
+        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
