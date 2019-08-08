@@ -2,3 +2,18 @@ ul {
     list-style: none;
     margin-right: 50px;
 }
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover,
+a:active {
+    color: lightgray;
+}
+
+a span {
+    display: inline-block;
+    padding-left: 6px;
+}

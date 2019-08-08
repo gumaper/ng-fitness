@@ -4,4 +4,7 @@ import { Component } from '@angular/core';
     selector: 'app-training',
     templateUrl: './training.component.html'
 })
-export class TrainingComponent { }
+export class TrainingComponent {
+
+    ongoingTraining = false
+ }
