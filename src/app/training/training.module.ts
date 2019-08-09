@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -8,6 +9,7 @@ import { CurrentTrainingComponent } from './current-training/current-training.co
 import { NewTrainingComponent } from './new-traning/new-training.component';
 import { MaterialModule } from '../material.module';
 import { StopTrainingComponent } from './current-training/stop-training.component';
+import { TrainingService } from './shared/training.service';
 
 @NgModule({
     declarations: [
@@ -23,8 +25,10 @@ import { StopTrainingComponent } from './current-training/stop-training.componen
     imports: [
         CommonModule,
         MaterialModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        FormsModule
     ],
-    entryComponents: [StopTrainingComponent]
+    entryComponents: [StopTrainingComponent],
+    providers: [TrainingService]
 })
 export class TrainingModule { }
