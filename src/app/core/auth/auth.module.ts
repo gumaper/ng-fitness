@@ -1,10 +1,11 @@
+import { TrainingService } from 'src/app/training/shared/training.service';
+import { AuthRoutingModule } from './auth-routing.module';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { MaterialModule } from './../../material.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -12,13 +13,13 @@ import { MaterialModule } from './../../material.module';
 @NgModule({
     declarations: [
         LoginComponent,
-        SignupComponent
+        SignupComponent,
     ],
     imports: [
-        MaterialModule,
-        FlexLayoutModule,
         ReactiveFormsModule,
-        FormsModule,
-    ]
+        SharedModule,
+        AuthRoutingModule
+    ],
+    providers: [TrainingService]
 })
 export class AuthModule { }

@@ -1,3 +1,4 @@
+import { UIService } from './../../core/auth/shared/ui.service';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Subject, Subscription } from 'rxjs';
@@ -15,7 +16,10 @@ export class TrainingService {
     private runningExercise: Exercise
     private fbSubs: Subscription[] = []
 
-    constructor(private fs: AngularFirestore) { }
+    constructor(
+        private fs: AngularFirestore,
+        private uiService: UIService
+    ) { }
 
     fetchAvailableExercises() {
         this.fbSubs.push(this.fs
@@ -36,6 +40,10 @@ export class TrainingService {
             .subscribe((exercises: Exercise[]) => {
                 this.availableExercises = exercises
                 this.exercisesChanged.next([...this.availableExercises])
+            }, error => {
+                this.uiService.loadingStateChanged.next(false)
+                this.uiService.showSnackbar(error.message, null, 3000)
+                this.exerciseChanged.next(null)
             }))
     }
 

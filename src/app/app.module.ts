@@ -1,3 +1,4 @@
+import { UIService } from './core/auth/shared/ui.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,10 +12,11 @@ import { environment } from './../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
-import { TrainingModule } from './training/training.module';
 import { CoreModule } from './core/core.module';
 import { AuthService } from './core/auth/shared/auth.service';
 import { AuthModule } from './core/auth/auth.module';
+import { TrainingService } from './training/shared/training.service';
+import { TrainingModule } from './training/training.module';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,11 @@ import { AuthModule } from './core/auth/auth.module';
     AngularFireAuthModule,
     MaterialModule,
     FlexLayoutModule,
-    TrainingModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    TrainingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TrainingService, UIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
